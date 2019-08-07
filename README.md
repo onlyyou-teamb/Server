@@ -83,9 +83,9 @@ $ python manage.py runserver 0.0.0.0:8080
 
 > :astonished:
 
-## Usage
+## Documentations
 
-- 
+- Check out https://github.com/onlyyou-teamb/Documentations
 
 ## How to contribute
 
