@@ -23,7 +23,7 @@ Opencv-Python : 4.0.0 or later
 
 ### Clone
 
-- Clone this repo to your local machine using `https://github.com/laji-cau/LAJI-HIGHLIGHTING.git`
+- Clone this repo to your local machine using `https://github.com/onlyyou-teamb/Server.git`
 
 ### Dockerizing
 
@@ -36,38 +36,26 @@ To install the current release for Ubuntu server.
 sudo apt update
 sudo apt install git python3-venv libsm6 libxext6 libxrender1 ffmpeg
 
-git clone https://github.com/laji-cau/LAJI-HIGHLIGHTING
-cd LAJI-HIGHLIGHTING/
+git clone https://github.com/onlyyou-teamb/Server.git
+cd Server
 
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
-#### *Try run LAJI-HIGHLIGHTING*
+#### *Try to run OnlyYou*
 Add your public IP or DNS to allow hosts.
+
 ```bash
-$ vim django_capstone/settings
+$ vim Server/settings
 ```
+
 ```python
 ALLOWED_HOSTS = [
     'ADD YOUR PUBLIC IP or DNS',
     'localhost',
     '127.0.0.1',
 ]
-```
-
-This service provides with google login.<br/>
-So, you have to activate [GOOGLE+ API](https://console.developers.google.com/apis/api/plus.googleapis.com),
-and to create [OAuth 2.0 Client](https://console.developers.google.com/apis/credentials) as a 'web application',
-and get API Key/Secret
-```bash
-$ vim Bash_dir/envs.json
-```
-```python
-{
-  "GOOGLE_KEY": "YOUR API_KEY",
-  "GOOGLE_SECRET": "YOUR API_SECRET"
-}
 ```
 
 ```bash
@@ -95,7 +83,7 @@ $ python manage.py runserver 0.0.0.0:8080
     - 🍴 Fork this repo!
 
 - **Option 2**
-    - 👯 Clone this repo to your local machine using `https://github.com/laji-cau/LAJI-HIGHLIGHTING`
+    - 👯 Clone this repo to your local machine using `https://github.com/onlyyou-teamb/Server.git`
 
 ### Step 2
 
