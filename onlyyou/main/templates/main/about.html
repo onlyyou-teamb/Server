@@ -1,4 +1,5 @@
 {% extends "main/base.html" %}
+{% load static %}
 {% block content %}
     <!-- Breadcrumb Area Start -->
     <section class="breadcrumb-area section-padding-80">
@@ -27,7 +28,7 @@
                 <!-- Section Heading -->
                 <div class="col-12 col-lg-6">
                     <div class="section-heading text-right mb-80 pr-5 pt-3">
-                        <p>New York • Since 2004</p>
+                        <p>San Jose • Since 2019</p>
                         <h2>About Our Stories</h2>
                         <span>History</span>
                     </div>
@@ -35,13 +36,181 @@
 
                 <div class="col-12 col-lg-6">
                     <div class="about--us--content mb-80">
-                        <p>At Hairone Salon, we are lorem ipsum dolor sit amet, consectetur adipi elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <img src="img/core-img/signature.png" alt="">
-                        <h4>Lara Croft</h4>
+                        <p>우리가 어떻게 이 프로그램을 만들게 되었는지에 대한 내용</p>
+                        <h4>Jung Yunho</h4>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Akame About Area End -->
+
+    <!-- Akame Video Area Start -->
+    <div class="akame--video--area">
+        <div class="container">
+
+            <!-- Video Content Area -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="video-content-area mb-80">
+                        <img src="img/bg-img/44.jpg" alt="">
+                        <a href="https://www.youtube.com/watch?v=Ldd8yjjo6jA" class="video-play-btn wow bounceInDown" data-wow-delay="200ms"><i class="fa fa-play mt-30"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Single Cool Facts Area -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-cool-facts-area text-center mb-80 wow fadeInUp" data-wow-delay="200ms">
+                        <span>Number</span>
+                        <h2 class="counter">4</h2>
+                        <p>Team Member</p>
+                    </div>
+                </div>
+
+                <!-- Single Cool Facts Area -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-cool-facts-area text-center mb-80 wow fadeInUp" data-wow-delay="400ms">
+                        <span>EFFORT</span>
+                        <h2 class="counter">343</h2>
+                        <p>Code Line</p>
+                    </div>
+                </div>
+
+                <!-- Single Cool Facts Area -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-cool-facts-area text-center mb-80 wow fadeInUp" data-wow-delay="600ms">
+                        <span>TIME</span>
+                        <h2 class="counter">379</h2>
+                        <p>TIME WE SPEND</p>
+                    </div>
+                </div>
+
+                <!-- Single Cool Facts Area -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-cool-facts-area text-center mb-80 wow fadeInUp" data-wow-delay="800ms">
+                        <span>Style</span>
+                        <h2 class="counter">97</h2>
+                        <p>Different Hairstyles</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Akame Video Area End -->
+
+    <!-- Our Expert Area Start -->
+    <section class="akame-our-expert-area section-padding-80-0">
+
+        <!-- Side Thumbnail -->
+        <div class="side-thumbnail" style="background-image: url(img/bg-img/14.png);"></div>
+
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-12 col-lg-6">
+                    <!-- Section Heading -->
+                    <div class="section-heading">
+                        <h2>Our Team Member</h2>
+                        <p>프로젝트 멤버 소개 <br> 배경은 우리 4명이서 찍은 사진</p>
+                    </div>
+                    <!-- Our Certificate -->
+                    <div class="our-certificate-area mb-60 d-flex align-items-center">
+                        <img src="img/core-img/certificate-1.png" alt="">
+                        <img src="img/core-img/certificate-2.png" alt="">
+                        <img src="img/core-img/certificate-3.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+
+                <!-- Single Team Member -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-team-member mb-80 wow fadeInUp" data-wow-delay="200ms">
+                        <div class="team-member-img">
+                            <img src="{% static 'jungyunho.png' %}" alt="">
+                            <!-- Social Info -->
+                            <div class="team-social-info d-flex align-items-center justify-content-center">
+                                <div class="social-link">
+                                    <a href="#"><i class="fa fa-facebook mt-3"></i></a>
+                                    <a href="#"><i class="fa fa-twitter mt-3"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin mt-3"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-member-info">
+                            <h5>Jung Yunho</h5>
+                            <p>Team Leader <br> Data modeling <br> Data Processing</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Team Member -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-team-member mb-80 wow fadeInUp" data-wow-delay="400ms">
+                        <div class="team-member-img">
+                            <img src="{% static 'leehyunjae.jpg' %}" alt="">
+                            <!-- Social Info -->
+                            <div class="team-social-info d-flex align-items-center justify-content-center">
+                                <div class="social-link">
+                                    <a href="#"><i class="fa fa-facebook mt-3"></i></a>
+                                    <a href="#"><i class="fa fa-twitter mt-3"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin mt-3"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-member-info">
+                            <h5>Lee Hyunjae</h5>
+                            <p>Web Development <br> Data modeling</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Team Member -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-team-member mb-80 wow fadeInUp" data-wow-delay="600ms">
+                        <div class="team-member-img">
+                            <img src="{% static 'leeseungjin.jpg' %}" alt="">
+                            <!-- Social Info -->
+                            <div class="team-social-info d-flex align-items-center justify-content-center">
+                                <div class="social-link">
+                                    <a href="#"><i class="fa fa-linkedin mt-3"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-member-info">
+                            <h5>Lee Seungjin</h5>
+                            <p>Data Collection <br> Web development </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Team Member -->
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-team-member mb-80 wow fadeInUp" data-wow-delay="800ms">
+                        <div class="team-member-img">
+                            <img src="{% static 'rohhyunwoo.jpg' %}" alt="">
+                            <!-- Social Info -->
+                            <div class="team-social-info d-flex align-items-center justify-content-center">
+                                <div class="social-link">
+                                    <a href="#"><i class="fa fa-facebook mt-3"></i></a>
+                                    <a href="#"><i class="fa fa-twitter mt-3"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin mt-3"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-member-info">
+                            <h5>Roh Younwoo</h5>
+                            <p>Data preprocessing</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Our Expert Area End -->
+
 {% endblock content %}
