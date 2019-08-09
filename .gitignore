@@ -6,7 +6,7 @@
 .LSOverride
 
 # file: ~/.gitignore_global
-.DS_Store
+.idea/workspace.xml
 .idea
 
 # Icon must end with two \r
