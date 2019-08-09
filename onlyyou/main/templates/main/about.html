@@ -1,4 +1,47 @@
 {% extends "main/base.html" %}
 {% block content %}
-    <h1>About Page</h1>
+    <!-- Breadcrumb Area Start -->
+    <section class="breadcrumb-area section-padding-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-content">
+                        <h2>About Us</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'main-home' %}"><i class="icon_house_alt"></i> Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">About</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Area End -->
+
+    <!-- Akame About Area Start -->
+    <section class="akame--about--area">
+        <div class="container">
+            <div class="row">
+                <!-- Section Heading -->
+                <div class="col-12 col-lg-6">
+                    <div class="section-heading text-right mb-80 pr-5 pt-3">
+                        <p>New York • Since 2004</p>
+                        <h2>About Our Stories</h2>
+                        <span>History</span>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <div class="about--us--content mb-80">
+                        <p>At Hairone Salon, we are lorem ipsum dolor sit amet, consectetur adipi elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <img src="img/core-img/signature.png" alt="">
+                        <h4>Lara Croft</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Akame About Area End -->
 {% endblock content %}
