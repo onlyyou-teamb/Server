@@ -5,6 +5,10 @@
 .AppleDouble
 .LSOverride
 
+# file: ~/.gitignore_global
+.DS_Store
+.idea
+
 # Icon must end with two \r
 Icon
 
