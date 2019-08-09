@@ -16,7 +16,6 @@ def register(request):
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
 
-
 @login_required
 def profile(request):
     if request.method == 'POST':
@@ -40,3 +39,10 @@ def profile(request):
     }
 
     return render(request, 'users/profile.html', context)
+
+@login_required
+def gallery(request):
+    return render(request, 'users/gallery.html')
+
+def upload(request):
+    return render(request, 'users/upload.html')
