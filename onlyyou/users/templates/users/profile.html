@@ -25,7 +25,9 @@
                 {% csrf_token %}
                 <fieldset class="form-group">
                     {{ u_form|crispy }}
-                    {{ p_form|crispy }}
+                    <img class="rounded-circle account-img" src="{{ user.profile.first_image.url }}">
+                    <img class="rounded-circle account-img" src="{{ user.profile.second_image.url }}">
+                    <img class="rounded-circle account-img" src="{{ user.profile.third_image.url }}">
                 </fieldset>
                 <div class="book-now-btn">
                     <button class="btn akame-btn" type="submit">Update</button>
