@@ -41,4 +41,5 @@ def profile(request):
     return render(request, 'users/profile.html', context)
 
 def upload(request):
+
     return render(request, 'users/upload.html')
