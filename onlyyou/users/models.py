@@ -16,14 +16,11 @@ class Profile(models.Model):
     third_image = models.FileField(
         default='third_image.jpg', upload_to=user_directory_path)
 
-    def __str__(self):
-        return f'{self.user.username} Profile'
-
     def save(self):
         super().save()
 
-    @classmethod
-    def create(cls, user):
-        Profile = cls(user=user)
+    # @classmethod
+    # def create(cls, user):
+    #     Profile = cls(user=user)
 
-        return Profile
+    #     return Profile

@@ -4,6 +4,13 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from .models import Profile
 from django.contrib.auth.models import User
+# from django.db.models.signals import post_save
+# from django.dispatch import receiver
+
+# @receiver(post_save, sender=User)
+# def create_profile(sender, instance, created, **kwargs):
+#     if created:
+#         Profile.objects.create(user=instance)
 
 
 def register(request):
@@ -13,8 +20,11 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            Profile.create(User.objects.get(username=username))
-
+            
+            # Profile object creates
+            profile = Profile(user=User.objects.get(username=username))
+            profile.save()
+            
             messages.success(
                 request, f'Your account has been created! You are now able to log in')
             return redirect('login')
