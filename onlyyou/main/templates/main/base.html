@@ -11,7 +11,7 @@
     <title>Only You - Your Right Protector</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="{% static '/img/core-img/favicon.ico' %}">
+    <link rel="icon" href="{% static 'onlyyou.png' %}">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{% static 'style.css' %}">
@@ -23,22 +23,20 @@
     <!-- Header Area Start -->
     <header class="header-area">
         <!-- Top Header Area Start -->
+        {% if user.is_authenticated %}
+        {% else %}
         <div class="top-header-area">
             <div class="container h-100">
                 <div class="row h-100 align-items-center">
                     <div class="col-5">
                         <div class="top-header-content">
-                            <p>Welcome to hair salon!</p>
-                        </div>
-                    </div>
-                    <div class="col-7">
-                        <div class="top-header-content text-right">
-                            <p><i class="fa fa-clock-o" aria-hidden="true"></i> Mon-Sat: 8.00 to 17.00 <span class="mx-2"></span> | <span class="mx-2"></span> <i class="fa fa-phone" aria-hidden="true"></i> Call us: (+12)-345-6789</p>
+                            <p> Register and get your Rights ! </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        {% endif %}
         <!-- Top Header Area End -->
 
         <!-- Main Header Start -->
@@ -49,7 +47,7 @@
                     <nav class="classy-navbar justify-content-between" id="akameNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="{% url 'main-home' %}"><img src="{% static '/img/core-img/logo.png' %}" alt=""></a>
+                        <a class="nav-brand" href="{% url 'main-home' %}"><img src="{% static 'icon.jpg' %}" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -100,7 +98,7 @@
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="single-footer-widget mb-80">
                         <!-- Footer Logo -->
-                        <a href="{% url 'main-home' %}" class="footer-logo"><img src="{% static 'img/core-img/logo.png' %}" alt=""></a>
+                        <a href="{% url 'main-home' %}" class="footer-logo"><img src="{% static 'icon.jpg' %}" alt=""></a>
 
                         <p class="mb-30">We would love to serve you and let you enjoy your culinary experience. Excepteur sint occaecat cupidatat non proident.</p>
 
