@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: bash -c "python manage.py makemigrations && python manage.py migrate"
+    container_name: onlyyou_service
+    volumes:
+      - .:/onlyyou_service
+    ports:
+      - "8000:8000"
