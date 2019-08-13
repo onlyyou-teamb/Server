@@ -1,5 +1,5 @@
-# :high_brightness: OnlyYou : Automatic face replacement in pictures 
-## :arrow_forward: For keeping other's portrait rights safe
+## :high_brightness: OnlyYou
+### :Automatic face replacement web service in pictures for portrait right protection using cycleGAN
 
 
 > &#9989; &#10102; We generate faked faces to replace with other's faces in your pictures  :open_mouth::camera:
