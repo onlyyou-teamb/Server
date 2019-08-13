@@ -12,7 +12,6 @@ from django.contrib.auth.models import User
 #     if created:
 #         Profile.objects.create(user=instance)
 
-
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
