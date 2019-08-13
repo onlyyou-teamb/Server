@@ -12,15 +12,16 @@ from django.views.generic import (
 from .models import Post
 
 
-
 def home(request):
     context = {
         'posts': Post.objects.all()
     }
     return render(request, 'main/home.html', context)
 
+
 def about(request):
     return render(request, 'main/about.html')
+
 
 class PostListView(ListView):
     model = Post
@@ -53,7 +54,6 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
-
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     fields = ['title', 'content', 'before_image']
@@ -78,7 +78,3 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user == post.author:
             return True
         return False
-
-
-def about(request):
-    return render(request, 'main/about.html', {'title': 'About'})

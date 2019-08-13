@@ -18,12 +18,16 @@
             </div>
 
             <div class="content-section">
-                <form method="POST">
+                <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <fieldset class="form-group">
                         {{ form|crispy }}
                     </fieldset>
-
+                    {% comment %} <ul>
+                    {% for post in object_list %}
+                        <img src="{{ post.cover.url}}">
+                    {% endfor %}
+                    </ul> {% endcomment %}
                     <div class="form-group">
                         <button class="btn akame-btn" type="submit">Post</button>
                     </div>
