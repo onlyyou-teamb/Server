@@ -1,10 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
 
-</body>
-</html>
+<!-- Breadcrumb Area Start -->
+    <section class="breadcrumb-area section-padding-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-content">
+                        <h2>Gallery</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'main-home' %}"><i class="icon_house_alt"></i> Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Area End -->
+
+    <!-- News Area Start -->
+    <section class="akame-news-area section-padding-0-80">
+        <div class="container">
+            <div class="row mx-sm-n4 akame-blog-masonary">
+
+                <!-- Single Blog Item -->
+                {% for post in posts %}
+                <div class="col-12 col-sm-6 col-lg-4 px-4 akame-blog-masonary-item mb-50 wow fadeInUp" data-wow-delay="200ms">
+                    <!-- Single Post Area -->
+                    <div class="single-post-area">
+                        <div class="post-thumbnail">
+                            <a href="{% url 'post-detail' post.id %}"><img src="{{ post.before_image.url }}" alt=""></a>
+                        </div>
+                        <div class="post-content">
+                            <a href="{% url 'post-detail' post.id %}" class="post-title">{{ post.title }}</a>
+                            <div class="post-meta">
+                                <a href="#" class="post-date"><i class="icon_clock_alt"></i> {{ post.date_posted|date:"F d, Y" }}</a>
+                                <a href="#" class="post-comments"><i class="icon_chat_alt"></i> 10</a>
+                            </div>
+                            <p>{{ post.content }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="row">
+                <div class="col-12 text-center">
+                    <a href="#" class="btn akame-btn active mt-30">Load More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- News Area End -->
+
+    <!-- Border -->
+    <div class="container">
+        <div class="border-top"></div>
+    </div>
+{% endblock content %}
