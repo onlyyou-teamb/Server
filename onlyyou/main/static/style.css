@@ -1702,4 +1702,11 @@ input:focus {
   .single-contact-information p {
     margin-bottom: 0; }
 
+.container {
+    /* remember to set a width */
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
 /*# sourceMappingURL=style.css.map */

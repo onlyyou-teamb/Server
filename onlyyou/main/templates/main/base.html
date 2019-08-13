@@ -70,7 +70,7 @@
                                     {% if user.is_authenticated %}
                                     <li><a href="{% url 'logout' %}">Logout</a></li>
                                     <li><a href="{% url 'profile' %}">Profile</a></li>
-                                    <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                                    <li><a href="{% url 'gallery' %}" >Gallery</a></li>
                                     {% else %}
                                     <li><a href="{% url 'login' %}">Sign In</a></li>
                                     <li><a href="{% url 'register' %}">Sign Up</a></li>

@@ -1,21 +1,109 @@
-
 {% extends "main/base.html" %}
+{% load static %}
 {% block content %}
-  <article class="media content-section">
-    <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
-    <div class="media-body">
-      <div class="article-metadata">
-        <a class="mr-2" href="#">{{ object.author }}</a>
-        <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
-        {% if object.author == user %}
-          <div>
-            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
-            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
-          </div>
-        {% endif %}
-      </div>
-      <h2 class="article-title">{{ object.title }}</h2>
-      <p class="article-content">{{ object.content }}</p>
-    </div>
-  </article>
+
+     <section class="akame-blog-details-area section-padding-80">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10">
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <a href="#" class="post-date"><i class="icon_clock_alt"></i> {{ object.date_posted|date:"F d, Y" }}</a>
+                            <a href="#" class="post-comments"><i class="icon_chat_alt"></i> 10</a>
+                        </div>
+                        <h2 class="post-title">{{ object.title }}</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="post-thumbnail mb-50">
+                        <div class="container">
+                            <div class="row row-pb-lg">
+                                <div class="col-md-6 no-gutters text-center animate-box">
+                                    <img class="thumbnail img-responsive" src="{{ object.before_image.url }}">
+                                            <div class="display-t">
+                                                <div class="display-tc">
+                                                    <br>
+                                                    <h4>Before Image</h4>
+                                                </div>
+                                            </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 no-gutters text-center animate-box">
+                                    <img class="thumbnail img-responsive" src="{{ object.after_image.url }}">
+                                        <div class="desc">
+                                            <div class="display-t">
+                                                <div class="display-tc">
+                                                    <br>
+                                                    <h4>After image</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+
+                <div class="col-10 col-md-10 col-lg-9">
+                    <div class="blog-details-text">
+                        <p> {{ object.content }} </p>
+                    </div>
+
+                    <!-- Post Author Area -->
+                    <div class="post-author-area d-flex align-items-center justify-content-between">
+                        <!-- Author Meta -->
+                        <div class="author-meta d-flex align-items-center">
+                            <div class="author-avatar">
+                                <img src="{{ user.profile.first_image.url }}" alt="">
+                            </div>
+                            <div class="author-text">
+                                <p>Guest Writer</p>
+                                <h5>{{ object.author }}</h5>
+                            </div>
+                        </div>
+
+                        {% if object.author == user %}
+                          <div>
+                            <a class="btn akame-btn btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
+                            <a class="btn akame-btn btn-sm mt-1 mb-1 ml-3" href="{% url 'post-delete' object.id %}">Delete</a>
+                          </div>
+                         {% endif %}
+                    </div>
+
+                    <!-- Leave A Reply -->
+                    <div class="akame-contact-form mt-50">
+                        <h4 class="mb-5">Leave a comment :</h4>
+
+                        <!-- Form -->
+                        <form action="#" method="post">
+                            <div class="row">
+                                <div class="col-12">
+                                    <textarea name="message" class="form-control mb-30" placeholder="Start the discussion..."></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" name="message-name" class="form-control mb-30" placeholder="Your Name">
+                                </div>
+                                <div class="col-12">
+                                    <input type="email" name="message-email" class="form-control mb-30" placeholder="Email">
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn akame-btn btn-3 mt-15">Post Comment</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Details Area End -->
 {% endblock content %}
+
+
