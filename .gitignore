@@ -49,6 +49,11 @@ lib64/
 parts/
 sdist/
 var/
+.idea/
+.vscode/ 
+ProjectEnv/ 
+Pipfile/ 
+Pipfile.lock
 *.egg-info/
 .installed.cfg
 *.egg
