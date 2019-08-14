@@ -4,6 +4,9 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from .models import Profile
 from django.contrib.auth.models import User
+from .num_of_face import NumOfFace
+from .coordinate_faces_ver2 import CoordinateFaces
+
 # from django.db.models.signals import post_save
 # from django.dispatch import receiver
 
@@ -34,11 +37,17 @@ def register(request):
 
 @login_required
 def profile(request):
+    
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
         p_form = ProfileUpdateForm(request.POST,
                                    request.FILES,
                                    instance=request.user.profile)
+        if not NumOfFace(request.FILES['first_image']) or not NumOfFace(request.FILES['second_image']) or not NumOfFace(request.FILES['third_image']):
+            # no face or more than 2 faces appeared
+            messages.error(request, f'No face or more than 2 faces appeared!')
+            return redirect('profile')
+
         if u_form.is_valid() and p_form.is_valid():
             u_form.save()
             p_form.save()
