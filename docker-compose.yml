@@ -1,11 +1,33 @@
-version: '3'
+# version: '3'
+
+# services:
+#   web:
+#     build: .
+#     command: bash -c "python manage.py makemigrations && python manage.py migrate"
+#     container_name: onlyyou_service
+#     volumes:
+#       - .:/onlyyou_service
+#     ports:
+#       - "8000:8000"
+
+version: "3"
 
 services:
+  db:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: "onlyyou-db"
+      MYSQL_USER: "onlyyou"
+      MYSQL_PASSWORD: "teamb"
+      MYSQL_ROOT_PASSWORD: "teamb"
   web:
     build: .
-    command: bash -c "python manage.py makemigrations && python manage.py migrate"
-    container_name: onlyyou_service
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
-      - .:/onlyyou_service
+      - .:/server
     ports:
       - "8000:8000"
+    depends_on:
+      - db
