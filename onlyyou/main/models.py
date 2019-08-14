@@ -16,6 +16,8 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     before_image = models.FileField(
         default='before_image.jpg', upload_to=user_directory_path)
+    after_image = models.FileField(
+        default='after_image.jpg', upload_to=user_directory_path, blank=True)
 
     def __str__(self):
         return self.title

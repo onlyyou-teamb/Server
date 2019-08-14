@@ -1,6 +1,7 @@
 {% extends "main/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+
     <section class="breadcrumb-area section-padding-80">
         <div class="container">
             <div class="row">
@@ -22,12 +23,8 @@
                     {% csrf_token %}
                     <fieldset class="form-group">
                         {{ form|crispy }}
+                            <output id="id_before_image"></output>
                     </fieldset>
-                    {% comment %} <ul>
-                    {% for post in object_list %}
-                        <img src="{{ post.cover.url}}">
-                    {% endfor %}
-                    </ul> {% endcomment %}
                     <div class="form-group">
                         <button class="btn akame-btn" type="submit">Post</button>
                     </div>

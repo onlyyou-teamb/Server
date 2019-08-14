@@ -22,27 +22,27 @@
     </section>
     <!-- Breadcrumb Area End -->
 
-    <!-- News Area Start -->
+    <!-- Gallery Area Start -->
     <section class="akame-news-area section-padding-0-80">
         <div class="container">
             <div class="row mx-sm-n4 akame-blog-masonary">
-
-                <!-- Single Blog Item -->
                 {% for post in posts %}
-                <div class="col-12 col-sm-6 col-lg-4 px-4 akame-blog-masonary-item mb-50 wow fadeInUp" data-wow-delay="200ms">
-                    <!-- Single Post Area -->
-                    <div class="single-post-area">
-                        <div class="post-thumbnail">
-                            <a href="{% url 'post-detail' post.id %}"><img src="{{ post.before_image.url }}" alt=""></a>
-                        </div>
-                        <div class="post-content">
-                            <a href="{% url 'post-detail' post.id %}" class="post-title">{{ post.title }}</a>
-                            <div class="post-meta">
-                                <a href="#" class="post-date"><i class="icon_clock_alt"></i> {{ post.date_posted|date:"F d, Y" }}</a>
-                                <a href="#" class="post-comments"><i class="icon_chat_alt"></i> 10</a>
+                <div class="col-12 col-sm-6 col-lg-4 akame-portfolio-item haircuts mb-30 wow fadeInUp" data-wow-delay="500ms">
+                    <div class="akame-portfolio-single-item">
+                        <a href="{% url 'post-detail' post.id %}"><img src="{{ post.before_image.url }}" alt=""></a>
+
+                        <!-- Overlay Content -->
+                        <div class="overlay-content d-flex align-items-center justify-content-center">
+                            <div class="overlay-text text-center">
+                                <a href="{% url 'post-detail' post.id %}" class="post-title"><h4>{{ post.title }}</h4></a>
+                                <a href="{% url 'post-detail' post.id %}" class="post-date"> <p>{{ post.author }} </p></a>
+                                <a href="{% url 'post-detail' post.id %}" class="post-date"> <p>{{ post.date_posted|date:"F d, Y" }} </p></a>
+
                             </div>
-                            <p>{{ post.content }}</p>
                         </div>
+
+                        <!-- Thumbnail Zoom -->
+                        <a href="{% url 'post-detail' post.id %}" class="thumbnail-zoom"><i class="icon_search"></i></a>
                     </div>
                 </div>
                 {% endfor %}
@@ -55,10 +55,11 @@
             </div>
         </div>
     </section>
-    <!-- News Area End -->
+    <!-- Gallery Area End -->
 
     <!-- Border -->
     <div class="container">
         <div class="border-top"></div>
     </div>
+
 {% endblock content %}
