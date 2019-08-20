@@ -46,13 +46,26 @@ def profile(request):
             secondimage = profile.second_image.path
             thirdimage = profile.third_image.path
 
-            print(profile)
-            print(firstimage)
-            print(secondimage)
-            # if not NumOfFace(request.FILES['first_image']) or not NumOfFace(request.FILES['second_image']) or not NumOfFace(request.FILES['third_image']):
-            #     # no face or more than 2 faces appeared
-            # messages.error(request, f'No face or more than 2 faces appeared!')
-            # return redirect('profile')
+            if not NumOfFace(firstimage):
+                # no face or more than 2 faces appeared
+                messages.error(
+                    request, f'No face or more than 2 faces appeared at 1st pic!')
+                profile.first_image.delete()
+                return redirect('profile')
+
+            else if not NumOfFace(secondimage):
+                # no face or more than 2 faces appeared
+                messages.error(
+                    request, f'No face or more than 2 faces appeared at 2nd pic!')
+                profile.second_image.delete()
+                return redirect('profile')
+
+            else if not NumOfFace(thirdimage):
+                # no face or more than 2 faces appeared
+                messages.error(
+                    request, f'No face or more than 2 faces appeared at 3rd pic!')
+                profile.third_image.delete()
+                return redirect('profile')
 
             messages.success(request, f'Your account has been updated!')
             return redirect('profile')
