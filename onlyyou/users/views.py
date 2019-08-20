@@ -40,34 +40,36 @@ def profile(request):
             u_form.save()
             p_form.save()
 
-            profile = Profile.objects.get(user=request.user)
-            firstimage = profile.first_image.path
-            secondimage = profile.second_image.path
-            thirdimage = profile.third_image.path
+            try:
+                profile = Profile.objects.get(user=request.user)
+            
+                firstimage = profile.first_image.path
+                secondimage = profile.second_image.path
+                thirdimage = profile.third_image.path
 
-            if not NumOfFace(firstimage):
-                # no face or more than 2 faces appeared
-                messages.error(
-                    request, f'No face or more than 2 faces appeared at 1st pic!')
-                profile.first_image.delete()
+                if not NumOfFace(firstimage):
+                    # no face or more than 2 faces appeared
+                    messages.error(
+                        request, f'No face or more than 2 faces appeared at 1st pic!')
+                    profile.first_image.delete()
+                    return redirect('profile')
+
+                elif not NumOfFace(secondimage):
+                    # no face or more than 2 faces appeared
+                    messages.error(
+                        request, f'No face or more than 2 faces appeared at 2nd pic!')
+                    profile.second_image.delete()
+                    return redirect('profile')
+
+                elif not NumOfFace(thirdimage):
+                    # no face or more than 2 faces appeared
+                    messages.error(
+                        request, f'No face or more than 2 faces appeared at 3rd pic!')
+                    profile.third_image.delete()
+                    return redirect('profile')
+            except:
+                messages.success(request, f'Your account has been updated!')
                 return redirect('profile')
-
-            elif not NumOfFace(secondimage):
-                # no face or more than 2 faces appeared
-                messages.error(
-                    request, f'No face or more than 2 faces appeared at 2nd pic!')
-                profile.second_image.delete()
-                return redirect('profile')
-
-            elif not NumOfFace(thirdimage):
-                # no face or more than 2 faces appeared
-                messages.error(
-                    request, f'No face or more than 2 faces appeared at 3rd pic!')
-                profile.third_image.delete()
-                return redirect('profile')
-
-            messages.success(request, f'Your account has been updated!')
-            return redirect('profile')
 
     else:
         u_form = UserUpdateForm(instance=request.user)
