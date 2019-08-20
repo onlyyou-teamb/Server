@@ -4,16 +4,9 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from .models import Profile
 from django.contrib.auth.models import User
-from .num_of_face import NumOfFace
-from .coordinate_faces_ver2 import CoordinateFaces
+#from .num_of_face import NumOfFace
+#from .coordinate_faces_ver2 import CoordinateFaces
 
-# from django.db.models.signals import post_save
-# from django.dispatch import receiver
-
-# @receiver(post_save, sender=User)
-# def create_profile(sender, instance, created, **kwargs):
-#     if created:
-#         Profile.objects.create(user=instance)
 
 def register(request):
     if request.method == 'POST':
@@ -22,11 +15,11 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            
+
             # Profile object creates
             profile = Profile(user=User.objects.get(username=username))
             profile.save()
-            
+
             messages.success(
                 request, f'Your account has been created! You are now able to log in')
             return redirect('login')
@@ -37,20 +30,30 @@ def register(request):
 
 @login_required
 def profile(request):
-    
+
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
         p_form = ProfileUpdateForm(request.POST,
                                    request.FILES,
                                    instance=request.user.profile)
-        if not NumOfFace(request.FILES['first_image']) or not NumOfFace(request.FILES['second_image']) or not NumOfFace(request.FILES['third_image']):
-            # no face or more than 2 faces appeared
-            messages.error(request, f'No face or more than 2 faces appeared!')
-            return redirect('profile')
 
         if u_form.is_valid() and p_form.is_valid():
             u_form.save()
             p_form.save()
+
+            profile = Profile.objects.get(user=request.user)
+            firstimage = profile.first_image.path
+            secondimage = profile.second_image.path
+            thirdimage = profile.third_image.path
+
+            print(profile)
+            print(firstimage)
+            print(secondimage)
+            # if not NumOfFace(request.FILES['first_image']) or not NumOfFace(request.FILES['second_image']) or not NumOfFace(request.FILES['third_image']):
+            #     # no face or more than 2 faces appeared
+            # messages.error(request, f'No face or more than 2 faces appeared!')
+            # return redirect('profile')
+
             messages.success(request, f'Your account has been updated!')
             return redirect('profile')
 

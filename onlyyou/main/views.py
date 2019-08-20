@@ -8,8 +8,8 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from .num_of_face import NumOfFace
-from .coordinate_faces_ver2 import CoordinateFaces
+#from .num_of_face import NumOfFace
+#from .coordinate_faces_ver2 import CoordinateFaces
 from .models import Post
 
 
@@ -55,6 +55,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     fields = ['title', 'content', 'before_image']
@@ -68,6 +69,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         if self.request.user == post.author:
             return True
         return False
+
 
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
