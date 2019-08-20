@@ -8,8 +8,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-#from .num_of_face import NumOfFace
-#from .coordinate_faces_ver2 import CoordinateFaces
+from .coordinate_faces_ver2 import CoordinateFaces
 from .models import Post
 
 

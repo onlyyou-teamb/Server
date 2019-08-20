@@ -4,8 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from .models import Profile
 from django.contrib.auth.models import User
-#from .num_of_face import NumOfFace
-#from .coordinate_faces_ver2 import CoordinateFaces
+from .num_of_face import NumOfFace
 
 
 def register(request):
