@@ -53,14 +53,14 @@ def profile(request):
                 profile.first_image.delete()
                 return redirect('profile')
 
-            else if not NumOfFace(secondimage):
+            elif not NumOfFace(secondimage):
                 # no face or more than 2 faces appeared
                 messages.error(
                     request, f'No face or more than 2 faces appeared at 2nd pic!')
                 profile.second_image.delete()
                 return redirect('profile')
 
-            else if not NumOfFace(thirdimage):
+            elif not NumOfFace(thirdimage):
                 # no face or more than 2 faces appeared
                 messages.error(
                     request, f'No face or more than 2 faces appeared at 3rd pic!')
